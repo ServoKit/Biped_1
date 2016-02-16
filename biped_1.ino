@@ -2,7 +2,8 @@
 
 // REST values are servo neutral position
 // Adjust so that the servo arm is at exactly 90 degress
-// to the servo
+// to the servo. The feet should then be parallel and rest
+// on the ground.
 
 #define LEG_REST 94
 #define FOOT_REST 90 
@@ -31,6 +32,8 @@ Servo foot;
 
 void setup() 
 {
+  // Servos are attached to pin 9 and 10
+  
   leg.attach(9);  
   foot.attach(10);
   legs(LEG_REST);
@@ -53,7 +56,6 @@ void loop()
 void legs(int move)
 {
   int v = leg.read();
-  int delayy;
   if(v < move)
   {
     for(int i=0;i<=move-v;i++)
